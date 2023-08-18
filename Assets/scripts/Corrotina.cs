@@ -25,9 +25,33 @@ public class Corrotina : MonoBehaviour
     {
         if (comeco == true)
         {
-            texto1.text = s.ToString();
-            texto2.text = m.ToString();
-            texto3.text = h.ToString();
+            if (s < 10)
+            {
+                texto1.text = 0 + s.ToString();
+            }
+            else
+            {
+                texto1.text = s.ToString();
+                
+            }
+            if (m < 10)
+            {
+                texto2.text = 0 + m.ToString();
+            }
+            else
+            {
+                texto2.text = m.ToString();
+                
+            }
+            if (h < 10)
+            {
+                texto3.text = 0 + h.ToString();
+            }
+            else
+            {
+                texto3.text = h.ToString();
+            }
+            
         }
     }
     IEnumerator tempo()
