@@ -10,19 +10,25 @@ public class Corrotina : MonoBehaviour
     public Text texto3;
     public Text ponto1;
     public Text ponto2;
-    public float s = 0;
-    public float m = 0;
-    public float h = 0;
+    public static float s = 0;
+    public static float m = 0;
+    public static float h = 0;
+    public static bool comeco = true;
     void Start()
     {
-        StartCoroutine(tempo());
         StartCoroutine(pontos());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (comeco == true)
+        {
+            texto1.text = s.ToString();
+            texto2.text = m.ToString();
+            texto3.text = h.ToString();
+        }
     }
     IEnumerator tempo()
     {
@@ -78,5 +84,13 @@ public class Corrotina : MonoBehaviour
         ponto1.enabled = !ponto1.enabled;
         ponto2.enabled = !ponto2.enabled;
         StartCoroutine(pontos());
+    }
+    public void comecar()
+    {
+        StartCoroutine(tempo());
+    }
+    public void parar()
+    {
+        StopCoroutine(tempo());
     }
 }
